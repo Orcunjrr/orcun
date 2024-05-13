@@ -3,23 +3,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include 'includes/head.html' %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Talha Orçun Karaarslan</title>
+    <meta name="keywords" content="{{ site_keywords }}">
+    <meta name="description" content="{{ site_description }}">
+    <meta name="author" content="{{ site_myname }}">
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{% static 'css/meyawo.css' %}">
+</head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
     <!-- Page Navbar -->
-    
-    {% include 'includes/navbar.html' %}
-    
     <!-- End of Page Navbar -->
-
+    {% include 'includes/navbar.html' %}
     <!-- page header -->
     <header id="home" class="header">
         <div class="overlay"></div>
         <div class="header-content container">
             <h1 class="header-title">
-                <span class="up">HI!</span>
-                <span class="down">I am John Doe</span>
+                <span class="up">Merhabalar</span>
+                <span class="down">{{ site_title }}</span>
             </h1>
             <p class="header-subtitle">FRONTEND WEB DESIGNER</p>
 
@@ -41,13 +51,7 @@
                     <p class="section-subtitle">Who Am I ?</p>
                     <h2 class="section-title mb-3">About Me</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae aliquid ad provident aut
-                        fuga animi soluta quae eos non cupiditate voluptates dolorem, doloremque quos dicta quibusdam
-                        impedit iure nemo a iste
-                        <br>culpa! Quasi quibusdam hic recusandae delectus velit officiis explicabo voluptatibus! Nemo
-                        esse similique, voluptates labore distinctio, placeat explicabo facilis molestias, blanditiis
-                        culpa iusto voluptatem ratione eligendi a, quia temporibus velit vero ipsa sint ex voluptatum
-                        expedita aliquid! Debitis, nam!
+                        {{ site_aboutme }}
                     </p>
                     <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
                 </div>
@@ -186,7 +190,7 @@
                     </div>
                     <div class="pricing-card-footer">
                         <span>$</span>
-                        <span>0.00/Month</span>
+                        <span>{{ site_bronse }}</span>
                     </div>
                     <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
                 </div>
@@ -208,7 +212,7 @@
                     </div>
                     <div class="pricing-card-footer">
                         <span>$</span>
-                        <span>9.99/Month</span>
+                        <span>{{ site_gold }}</span>
                     </div>
                     <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
                 </div>
@@ -230,7 +234,7 @@
                     </div>
                     <div class="pricing-card-footer">
                         <span>$</span>
-                        <span>99.9/Month</span>
+                        <span>{{ site_diamond }}</span>
                     </div>
                     <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
                 </div>
@@ -365,7 +369,7 @@
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
             <!-- contact form -->
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form action="https://formspree.io/f/xeqynyne" method="POST" class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <input type="text" size="50" class="form-control" placeholder="Your Name" required>
@@ -386,13 +390,33 @@
     </section><!-- end of contact section -->
 
     <!-- footer -->
-    
-    {% include 'includes/footer.html' %}
-    
-    <!-- end of page footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="http://www.devcrud.com">DevCRUD</a> Distribution <a
+                    href="https://themewagon.com">ThemeWagon</a>
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
 
     <!-- core  -->
-   
+    <script src="{% static 'vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="{% static 'vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- Meyawo js -->
+    <script src="{% static 'js/meyawo.js' %}"></script>
 
 </body>
 
