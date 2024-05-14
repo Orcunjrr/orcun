@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mycv.models import GeneralSetting
+from mycv.models import GeneralSetting, ImageSetting
 
 
 def index(request):
@@ -12,6 +12,11 @@ def index(request):
     site_gold = GeneralSetting.objects.get(name='site_gold').parameter
     site_diamond = GeneralSetting.objects.get(name='site_diamond').parameter
 
+    # Resimler
+
+    site_favicon = ImageSetting.objects.get(name='site_favicon').file
+    about_me_img = ImageSetting.objects.get(name='about_me_img').file
+
     context = {
         'site_title': site_title,
         'site_keywords': site_keywords,
@@ -21,6 +26,8 @@ def index(request):
         'site_bronse': site_bronse,
         'site_gold': site_gold,
         'site_diamond': site_diamond,
+        'site_favicon': site_favicon,
+        'about_me_img': about_me_img,
     }
     return render(request, 'index.html', context=context)
 
