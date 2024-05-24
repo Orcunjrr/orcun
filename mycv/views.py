@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from mycv.models import GeneralSetting, ImageSetting
+from django.shortcuts import render, redirect, get_object_or_404
+from mycv.models import GeneralSetting, ImageSetting, SocialMedia, Document
 
 
 def index(request):
@@ -11,6 +11,8 @@ def index(request):
     site_bronse = GeneralSetting.objects.get(name='site_bronse').parameter
     site_gold = GeneralSetting.objects.get(name='site_gold').parameter
     site_diamond = GeneralSetting.objects.get(name='site_diamond').parameter
+    social_medias = SocialMedia.objects.all()
+    documents = Document.objects.all()
 
     # Resimler
 
@@ -28,8 +30,16 @@ def index(request):
         'site_diamond': site_diamond,
         'site_favicon': site_favicon,
         'about_me_img': about_me_img,
+        'social_medias': social_medias,
+        'documents': documents,
     }
     return render(request, 'index.html', context=context)
 
 def contact(request):
     return render(request, 'contact.html')
+
+def redirect_urls(request, slug):
+    doc = get_object_or_404(Document, slug=slug)
+    return redirect(doc.file.url)
+
+

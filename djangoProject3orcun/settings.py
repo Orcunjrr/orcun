@@ -16,12 +16,7 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-
-
 SECRET_KEY = 'django-insecure-ptfkf_=2)#o+#u84r!&vq2-!vy5sa)r%n9y$8j)f1e-=6b6h%w'
-
 
 DEBUG = True
 
@@ -30,23 +25,17 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS', cast=list)
 
 CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS', cast=list)
 
-
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -58,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mycv.apps.MycvConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -91,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoProject3orcun.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -101,7 +90,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -121,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -132,7 +119,6 @@ TIME_ZONE = 'Europe/Istanbul'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -146,7 +132,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
